@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://script/shop.gd" type="Script" id=1]
+[ext_resource path="res://theme/new_theme.tres" type="Theme" id=2]
+[ext_resource path="res://sprites/progress.png" type="Texture" id=3]
+
+[node name="shop" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -162.0
+margin_top = -288.0
+margin_right = -162.0
+margin_bottom = -288.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_top = 1.0
+margin_right = 324.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 255.0
+margin_right = 319.0
+margin_bottom = 30.0
+grow_horizontal = 0
+theme = ExtResource( 2 )
+text = "UPDATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 3.0
+margin_right = 69.0
+margin_bottom = 26.0
+text = "bbbbb"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progress" type="TextureProgress" parent="."]
+margin_left = 77.2852
+margin_top = 4.71475
+margin_right = 342.285
+margin_bottom = 51.7148
+rect_scale = Vector2( 0.640002, 0.4 )
+max_value = 10000.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 3 )
+tint_under = Color( 0.913725, 0.286275, 0.258824, 1 )
+tint_progress = Color( 0.156863, 0.709804, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="holdTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="progressLabel" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 28.0
+margin_right = 251.0
+margin_bottom = 50.0
+text = "aaaaa"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="holdTimer" to="." method="_on_holdTimer_timeout"]

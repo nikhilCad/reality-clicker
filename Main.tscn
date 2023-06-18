@@ -1,0 +1,323 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://script/Main.gd" type="Script" id=1]
+[ext_resource path="res://script/mainClick.gd" type="Script" id=2]
+[ext_resource path="res://script/newAutoclick.gd" type="Script" id=3]
+[ext_resource path="res://script/clickReward.gd" type="Script" id=4]
+[ext_resource path="res://sprites/cog.png" type="Texture" id=5]
+[ext_resource path="res://sprites/explosion-rays.png" type="Texture" id=6]
+[ext_resource path="res://sprites/rupee.png" type="Texture" id=7]
+[ext_resource path="res://sprites/upgrade.png" type="Texture" id=8]
+[ext_resource path="res://theme/new_theme.tres" type="Theme" id=9]
+[ext_resource path="res://theme/ROBOTO-REGULAR.TTF" type="DynamicFontData" id=10]
+[ext_resource path="res://script/bottomButtons.gd" type="Script" id=11]
+[ext_resource path="res://happy.ogg" type="AudioStream" id=12]
+[ext_resource path="res://creditButton.gd" type="Script" id=13]
+[ext_resource path="res://Button.gd" type="Script" id=14]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 10 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="moneyLabel" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "MONEY : $0.00"
+
+[node name="button" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.0
+margin_top = -87.0
+margin_right = 101.0
+margin_bottom = -12.0
+rect_pivot_offset = Vector2( 30.701, 22.9091 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainClick" type="Button" parent="button"]
+margin_right = 199.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 27.2019, 9.74271 )
+theme = ExtResource( 9 )
+text = "GET $1"
+script = ExtResource( 2 )
+
+[node name="bottomButtons" type="Control" parent="."]
+margin_top = 532.0
+margin_right = 324.0
+margin_bottom = 575.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="bottomButtons"]
+modulate = Color( 0.027451, 0.0588235, 0.745098, 0.623529 )
+margin_top = -200.0
+margin_right = 324.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoclick" type="TextureButton" parent="bottomButtons"]
+margin_left = 14.6652
+margin_right = 57.6652
+margin_bottom = 43.0
+texture_normal = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="bottomButtons/autoclick"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -36.1652
+margin_top = -235.0
+margin_right = 287.835
+margin_bottom = -43.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoClick" type="VBoxContainer" parent="bottomButtons/autoclick/ScrollContainer"]
+custom_constants/separation = 55
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lastItemBugHelper" type="Control" parent="bottomButtons/autoclick/ScrollContainer/autoClick"]
+
+[node name="managers" type="TextureButton" parent="bottomButtons"]
+margin_left = 95.6652
+margin_right = 138.665
+margin_bottom = 43.0
+texture_normal = ExtResource( 6 )
+expand = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="bottomButtons/managers"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -117.165
+margin_top = -235.0
+margin_right = 206.835
+margin_bottom = -43.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoClick" type="VBoxContainer" parent="bottomButtons/managers/ScrollContainer"]
+margin_right = 82.0
+margin_bottom = 73.0
+custom_constants/separation = 35
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clickReward" type="Button" parent="bottomButtons/managers/ScrollContainer/autoClick"]
+margin_right = 82.0
+margin_bottom = 19.0
+theme = ExtResource( 9 )
+text = "PRICE : $10"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="newAutoclick" type="Button" parent="bottomButtons/managers/ScrollContainer/autoClick"]
+margin_top = 54.0
+margin_right = 82.0
+margin_bottom = 73.0
+theme = ExtResource( 9 )
+text = "AUTO"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="premium" type="TextureButton" parent="bottomButtons"]
+margin_left = 176.665
+margin_right = 219.665
+margin_bottom = 43.0
+texture_normal = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="bottomButtons/premium"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -198.165
+margin_top = -235.0
+margin_right = 125.835
+margin_bottom = -43.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoClick" type="VBoxContainer" parent="bottomButtons/premium/ScrollContainer"]
+custom_constants/separation = 35
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="setttings" type="TextureButton" parent="bottomButtons"]
+margin_left = 257.665
+margin_right = 300.665
+margin_bottom = 43.0
+texture_normal = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="bottomButtons/setttings"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -279.165
+margin_top = -235.0
+margin_right = 44.835
+margin_bottom = -43.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoClick" type="VBoxContainer" parent="bottomButtons/setttings/ScrollContainer"]
+margin_right = 54.0
+margin_bottom = 73.0
+custom_constants/separation = 35
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resetButton" type="Button" parent="bottomButtons/setttings/ScrollContainer/autoClick"]
+margin_right = 54.0
+margin_bottom = 19.0
+theme = ExtResource( 9 )
+text = "RESET"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creditButton" type="Button" parent="bottomButtons/setttings/ScrollContainer/autoClick"]
+margin_top = 54.0
+margin_right = 54.0
+margin_bottom = 73.0
+theme = ExtResource( 9 )
+text = "CREDIT"
+script = ExtResource( 13 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 1.0
+autoplay = true
+
+[node name="dialogueOverlay" type="ColorRect" parent="."]
+visible = false
+margin_right = 324.0
+margin_bottom = 576.0
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creditDialogue" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -237.0
+margin_right = 101.0
+margin_bottom = 204.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="creditDialogue"]
+margin_right = 200.0
+margin_bottom = 356.0
+theme = ExtResource( 9 )
+text = "                CREDITS
+Music:  rezoner for Happy arcade tune https://twitter.com/rezoner
+Click icon
+by Skoll under CC BY 3.0
+Cog icon
+by Lorc under CC BY 3.0
+Upgrade icon
+by Delapouite under CC BY 3.0
+Explosion rays icon
+by Lorc under CC BY 3.0
+Rupee icon
+by Delapouite under CC BY 3.0
+And kenny asssets
+
+"
+autowrap = true
+
+[node name="closeButton" type="Button" parent="creditDialogue"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -33.0
+margin_top = -20.0
+margin_right = 33.0
+theme = ExtResource( 9 )
+text = "CLOSE"
+script = ExtResource( 14 )
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 15 )
+is_personalized = false
+
+[node name="adTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="pressed" from="button/mainClick" to="button/mainClick" method="_on_mainClick_pressed"]
+[connection signal="pressed" from="bottomButtons/autoclick" to="bottomButtons" method="_on_autoclick_pressed"]
+[connection signal="pressed" from="bottomButtons/managers" to="bottomButtons" method="_on_managers_pressed"]
+[connection signal="pressed" from="bottomButtons/managers/ScrollContainer/autoClick/clickReward" to="bottomButtons/managers/ScrollContainer/autoClick/clickReward" method="_on_clickReward_pressed"]
+[connection signal="pressed" from="bottomButtons/managers/ScrollContainer/autoClick/newAutoclick" to="bottomButtons/managers/ScrollContainer/autoClick/newAutoclick" method="_on_newAutoclick_pressed"]
+[connection signal="pressed" from="bottomButtons/premium" to="bottomButtons" method="_on_premium_pressed"]
+[connection signal="pressed" from="bottomButtons/setttings" to="bottomButtons" method="_on_setttings_pressed"]
+[connection signal="pressed" from="bottomButtons/setttings/ScrollContainer/autoClick/resetButton" to="." method="_on_resetButton_pressed"]
+[connection signal="pressed" from="bottomButtons/setttings/ScrollContainer/autoClick/creditButton" to="bottomButtons/setttings/ScrollContainer/autoClick/creditButton" method="_on_creditButton_pressed"]
+[connection signal="pressed" from="creditDialogue/closeButton" to="creditDialogue/closeButton" method="_on_closeButton_pressed"]
+[connection signal="timeout" from="adTimer" to="." method="_on_adTimer_timeout"]

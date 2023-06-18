@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://sprites/button.png" type="Texture" id=1]
+[ext_resource path="res://theme/new_dynamicfont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 190, 45 )
+modulate_color = Color( 0.160784, 0.596078, 0.152941, 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 190, 45 )
+modulate_color = Color( 0.239216, 0.584314, 0.176471, 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 190, 45 )
+modulate_color = Color( 0.0862745, 0.447059, 0.0588235, 1 )
+
+[resource]
+default_font = ExtResource( 2 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = ExtResource( 2 )
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 1 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )
